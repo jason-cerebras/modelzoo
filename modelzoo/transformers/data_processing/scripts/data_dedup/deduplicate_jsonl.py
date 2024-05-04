@@ -29,6 +29,8 @@ def deduplicate(args):
     n_duplicate_docs = 0
     
     for component in tqdm.tqdm(components):
+        if not args.keep_first:
+            component.reverse()
         for j in range(1, len(component)):
             doc = reversed_mapper[component[j]]
             file_name, doc_idx = doc.split("@")

@@ -180,6 +180,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "--processes", type=int,help="Number of processes to parallelise on", default=1, required=False 
     ) 
+    parser.add_argument(
+        "--keep_first", action="store_false",help="when this flag is set the last duplicated instance is kept. Otherwise the first \
+            instance is kept" 
+    ) 
     args = parser.parse_args()
     if not os.path.exists(args.output_dir):
         os.mkdir(args.output_dir)
